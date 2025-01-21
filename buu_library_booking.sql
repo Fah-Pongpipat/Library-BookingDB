@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2025 at 04:51 AM
+-- Generation Time: Jan 21, 2025 at 08:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -374,44 +374,45 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`roomId`, `room_Name`, `capacity`, `max_hours`, `room_Status`, `room_Type`, `room_Minimum`, `orderFood`, `floorFloorId`) VALUES
-(1, 'SmartTV 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2),
-(2, 'SmartTV 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2),
-(3, 'SmartTV 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2),
-(4, 'SmartTV 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2),
-(5, 'SmartTV 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2),
-(6, 'SmartTV 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3),
-(7, 'SmartTV 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3),
-(8, 'SmartTV 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3),
-(9, 'SmartTV 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3),
-(10, 'SmartTV 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3),
-(11, 'SmartTV 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4),
-(12, 'SmartTV 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4),
-(13, 'SmartTV 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4),
-(14, 'SmartTV 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4),
-(15, 'SmartTV 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4),
+(1, 'ศึกษากลุ่ม 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2),
+(2, 'ศึกษากลุ่ม 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2),
+(3, 'ศึกษากลุ่ม 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2),
+(4, 'ศึกษากลุ่ม 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2),
+(5, 'ศึกษากลุ่ม 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2),
+(6, 'ศึกษากลุ่ม 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3),
+(7, 'ศึกษากลุ่ม 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3),
+(8, 'ศึกษากลุ่ม 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3),
+(9, 'ศึกษากลุ่ม 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3),
+(10, 'ศึกษากลุ่ม 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3),
+(11, 'ศึกษากลุ่ม 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4),
+(12, 'ศึกษากลุ่ม 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4),
+(13, 'ศึกษากลุ่ม 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4),
+(14, 'ศึกษากลุ่ม 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4),
+(15, 'ศึกษากลุ่ม 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4),
 (16, 'Lecture\'s room 1', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 4),
 (17, 'Lecture\'s room 2', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 4),
 (18, 'Lecture\'s room 3', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 4),
-(19, 'Room 640 Smart Board', 10, 2, 'ว่าง', 'Meeting', 8, 'No', 5),
-(20, 'ห้องคาราโอเกะ 01', 5, 2, 'ว่าง', 'Entertain', 3, 'No', 5),
-(21, 'ห้องคาราโอเกะ 02', 5, 2, 'ว่าง', 'Entertain', 3, 'No', 5),
-(22, 'Mimi theater', 30, 2, 'ว่าง', 'Entertain', 10, 'No', 5),
-(23, 'Room STV-1', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
-(24, 'Room STV-2', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
-(25, 'Room STV-3', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
-(26, 'Room STV-4', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
-(27, 'Room STV-5', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
-(28, 'Room STV-6', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
-(29, 'Room STV-7', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
-(30, 'Room STV-8', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
-(31, 'Room STV-9', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
-(32, 'Mimi Studios 1', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 5),
-(35, 'CYBER ZONE |', 70, 24, 'ว่าง', 'Meeting', 1, 'Yes', 5),
-(36, 'CYBER ZONE || ', 30, 24, 'ว่าง', 'Meeting', 1, 'Yes', 5),
+(19, '640 Smart Board', 10, 2, 'ว่าง', 'Meeting', 8, 'No', 5),
+(20, 'LIBRA OKE I', 5, 2, 'ว่าง', 'Entertain', 3, 'No', 5),
+(21, 'LIBRA OKE II', 5, 2, 'ว่าง', 'Entertain', 3, 'No', 5),
+(22, 'Mini theater', 30, 2, 'ว่าง', 'Entertain', 10, 'No', 5),
+(23, 'STV-1', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
+(24, 'STV-2', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
+(25, 'STV-3', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
+(26, 'STV-4', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
+(27, 'STV-5', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
+(28, 'STV-6', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
+(29, 'STV-7', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
+(30, 'STV-8', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
+(31, 'STV-9', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5),
+(32, 'Mini Studio', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 5),
+(35, 'CYBER ZONE I', 70, 24, 'ว่าง', 'Meeting', 1, 'Yes', 5),
+(36, 'CYBER ZONE II', 30, 24, 'ว่าง', 'Meeting', 1, 'Yes', 5),
 (37, 'ห้อง 201', 50, 24, 'ว่าง', 'Meeting', 20, 'Yes', 1),
 (38, 'ห้อง 706', 50, 24, 'ว่าง', 'Meeting', 1, 'Yes', 6),
 (39, 'ห้อง 707', 50, 24, 'ว่าง', 'Meeting', 1, 'Yes', 6),
-(40, 'Live for Life', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 5);
+(40, 'Live for Life', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 5),
+(41, 'ศึกษากลุ่ม 6', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2);
 
 -- --------------------------------------------------------
 
@@ -693,7 +694,7 @@ ALTER TABLE `role_room_access`
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `roomId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `roomId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `special_room_booking`
