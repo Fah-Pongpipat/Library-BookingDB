@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2025 at 04:07 AM
+-- Generation Time: Feb 20, 2025 at 10:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -51,7 +51,11 @@ CREATE TABLE `document` (
 --
 
 INSERT INTO `document` (`id`, `fileName`, `documentPath`) VALUES
-(1, 'มติที่ประชุม.pdf', '');
+(1, 'มติที่ประชุม.pdf', ''),
+(2, 'มติที่ประชุม.pdf', '/uploads/documents/file-1740040409880-มติที่ประชุมpdf.pdf'),
+(3, 'มติที่ประชุม.pdf', '/uploads/documents/file-1740041334047-มติที่ประชุมpdf.pdf'),
+(4, 'มติที่ประชุม.pdf', '/uploads/documents/file-1740041359048-มติที่ประชุมpdf.pdf'),
+(5, 'มติที่ประชุม.pdf', '/uploads/documents/file-1740041545487-มติที่ประชุมpdf.pdf');
 
 -- --------------------------------------------------------
 
@@ -89,15 +93,6 @@ CREATE TABLE `equipment_booking` (
   `srb_Id` int(11) NOT NULL,
   `require` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `equipment_booking`
---
-
-INSERT INTO `equipment_booking` (`eqb_Id`, `eq_Id`, `srb_Id`, `require`) VALUES
-(1, 1, 1, 'ต้องการ'),
-(2, 2, 1, 'ต้องการ'),
-(3, 7, 1, 'ต้องการ');
 
 -- --------------------------------------------------------
 
@@ -360,6 +355,13 @@ CREATE TABLE `normal_room_booking` (
   `cancelTime` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `normal_room_booking`
+--
+
+INSERT INTO `normal_room_booking` (`nrbId`, `startDate`, `startTime`, `endDate`, `endTime`, `repeat_Flag`, `repeat_End_Flag`, `details`, `roomBookingRoomId`, `reseve_status`, `reason`, `cancelTime`) VALUES
+(8, '2025-02-20', '15:00:00', '2025-02-20', '15:30:00', 'No', '2025-02-20', '', 3, 'รอ', '', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -375,14 +377,6 @@ CREATE TABLE `order_detail` (
   `SpecialRoomBooking_Id` int(11) NOT NULL,
   `Serve_Time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order_detail`
---
-
-INSERT INTO `order_detail` (`orders_ID`, `Serve_Name`, `Serve_Categories`, `Quantity`, `CostPerson`, `SpecialRoomBooking_Id`, `Serve_Time`) VALUES
-(1, 'พักเบรค 1', 'อาหารว่าง', 10, 70.00, 1, '00:00:00'),
-(2, 'อาหารพักเที่ยง', 'อาหารเที่ยง', 10, 70.00, 1, '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -428,13 +422,6 @@ CREATE TABLE `role_assignment` (
   `roleId` int(11) NOT NULL,
   ` userId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `role_assignment`
---
-
-INSERT INTO `role_assignment` (`roleAssId`, `roleId`, ` userId`) VALUES
-(1, 2, 64160100);
 
 -- --------------------------------------------------------
 
@@ -641,13 +628,6 @@ CREATE TABLE `special_room_booking` (
   `cancelTime` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `special_room_booking`
---
-
-INSERT INTO `special_room_booking` (`srb_Id`, `people_Count`, `start_Date`, `start_Time`, `end_Date`, `end_Time`, `stage_Name`, `reseve_status`, `equip_Descript`, `order_Description`, `documentId`, `userId`, `roomId`, `contract_Number`, `reason`, `cancelTime`) VALUES
-(1, 10, '2024-12-23', '00:00:09', '2024-12-23', '00:00:12', 'No', 'รอ', 'ต้องการอยากละตัว', 'ขออาหารสำหรับอิสลาม', 1, 64160100, 36, '084123123', '', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -656,38 +636,21 @@ INSERT INTO `special_room_booking` (`srb_Id`, `people_Count`, `start_Date`, `sta
 
 CREATE TABLE `user` (
   `userId` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `firstName` varchar(255) NOT NULL,
-  `lastName` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `Username` varchar(255) NOT NULL,
+  `Prefix_Name` varchar(255) DEFAULT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Phone` varchar(255) DEFAULT NULL,
+  `Department_Name` varchar(255) DEFAULT NULL,
+  `Position_Name` varchar(255) DEFAULT NULL,
+  `TypePersons` varchar(255) DEFAULT NULL,
+  `Agency` varchar(255) DEFAULT NULL,
+  `Status` varchar(255) DEFAULT NULL,
+  `ManagementPositionName` varchar(255) DEFAULT NULL,
+  `Ldap` int(11) NOT NULL,
+  `lastLoginAt` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`userId`, `username`, `password`, `firstName`, `lastName`, `email`) VALUES
-(64160100, 'john_doe', 'pass123', 'John', 'Doe', 'john.doe@example.com'),
-(64160101, 'jane_smith', 'secure456', 'Jane', 'Smith', 'jane.smith@example.com'),
-(64160102, 'michael_brown', 'michael789', 'Michael', 'Brown', 'michael.brown@example.com'),
-(64160103, 'emily_clark', 'emily123', 'Emily', 'Clark', 'emily.clark@example.com'),
-(64160104, 'david_jones', 'david456', 'David', 'Jones', 'david.jones@example.com'),
-(64160105, 'sarah_wilson', 'sarah789', 'Sarah', 'Wilson', 'sarah.wilson@example.com'),
-(64160106, 'chris_moore', 'chris123', 'Chris', 'Moore', 'chris.moore@example.com'),
-(64160107, 'lisa_white', 'lisa456', 'Lisa', 'White', 'lisa.white@example.com'),
-(64160108, 'mark_taylor', 'mark789', 'Mark', 'Taylor', 'mark.taylor@example.com'),
-(64160109, 'laura_green', 'laura123', 'Laura', 'Green', 'laura.green@example.com'),
-(64160110, 'daniel_lee', 'daniel456', 'Daniel', 'Lee', 'daniel.lee@example.com'),
-(64160111, 'olivia_king', 'olivia789', 'Olivia', 'King', 'olivia.king@example.com'),
-(64160112, 'james_hill', 'james123', 'James', 'Hill', 'james.hill@example.com'),
-(64160113, 'amanda_wright', 'amanda456', 'Amanda', 'Wright', 'amanda.wright@example.com'),
-(64160114, 'william_scott', 'william789', 'William', 'Scott', 'william.scott@example.com'),
-(64160115, 'emma_turner', 'emma123', 'Emma', 'Turner', 'emma.turner@example.com'),
-(64160116, 'anthony_harris', 'anthony456', 'Anthony', 'Harris', 'anthony.harris@example.com'),
-(64160117, 'charlotte_wood', 'charlotte789', 'Charlotte', 'Wood', 'charlotte.wood@example.com'),
-(64160118, 'patrick_martin', 'patrick123', 'Patrick', 'Martin', 'patrick.martin@example.com'),
-(64160119, 'natalie_adams', 'natalie456', 'Natalie', 'Adams', 'natalie.adams@example.com');
 
 -- --------------------------------------------------------
 
@@ -804,17 +767,19 @@ ALTER TABLE `room`
 --
 ALTER TABLE `special_room_booking`
   ADD PRIMARY KEY (`srb_Id`),
-  ADD UNIQUE KEY `REL_07fab35fc40d3a36e529b8c14f` (`documentId`),
   ADD KEY `FK_8f52b72c21db4ed794a7d7479d2` (`userId`),
-  ADD KEY `FK_a2698ea3ee59fb004363a9f3403` (`roomId`);
+  ADD KEY `FK_a2698ea3ee59fb004363a9f3403` (`roomId`),
+  ADD KEY `FK_07fab35fc40d3a36e529b8c14fb` (`documentId`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`userId`),
-  ADD UNIQUE KEY `unique_username` (`username`),
-  ADD UNIQUE KEY `unique_email` (`email`);
+  ADD UNIQUE KEY `IDX_b000857089edf6cae23b9bc9b8` (`Username`),
+  ADD UNIQUE KEY `IDX_b7eee57d84fb7ed872e660197f` (`Email`),
+  ADD UNIQUE KEY `unique_username` (`Username`),
+  ADD UNIQUE KEY `unique_email` (`Email`);
 
 --
 -- Indexes for table `user_booking`
@@ -838,7 +803,7 @@ ALTER TABLE `confirmation`
 -- AUTO_INCREMENT for table `document`
 --
 ALTER TABLE `document`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -868,7 +833,7 @@ ALTER TABLE `holiday`
 -- AUTO_INCREMENT for table `normal_room_booking`
 --
 ALTER TABLE `normal_room_booking`
-  MODIFY `nrbId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `nrbId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
@@ -880,7 +845,7 @@ ALTER TABLE `order_detail`
 -- AUTO_INCREMENT for table `participant`
 --
 ALTER TABLE `participant`
-  MODIFY `participant_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `participant_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -916,13 +881,13 @@ ALTER TABLE `special_room_booking`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64160120;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user_booking`
 --
 ALTER TABLE `user_booking`
-  MODIFY `userbooking_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `userbooking_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
@@ -985,7 +950,7 @@ ALTER TABLE `room`
 -- Constraints for table `special_room_booking`
 --
 ALTER TABLE `special_room_booking`
-  ADD CONSTRAINT `FK_07fab35fc40d3a36e529b8c14fb` FOREIGN KEY (`documentId`) REFERENCES `document` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `FK_07fab35fc40d3a36e529b8c14fb` FOREIGN KEY (`documentId`) REFERENCES `document` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_8f52b72c21db4ed794a7d7479d2` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_a2698ea3ee59fb004363a9f3403` FOREIGN KEY (`roomId`) REFERENCES `room` (`roomId`) ON DELETE CASCADE ON UPDATE CASCADE;
 
