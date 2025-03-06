@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Mar 04, 2025 at 07:25 AM
+-- Generation Time: Mar 06, 2025 at 07:53 AM
 -- Server version: 9.2.0
 -- PHP Version: 8.2.27
 
@@ -42,19 +42,9 @@ CREATE TABLE `confirmation` (
 
 CREATE TABLE `document` (
   `id` int NOT NULL,
-  `fileName` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `documentPath` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `fileName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `documentPath` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `document`
---
-
-INSERT INTO `document` (`id`, `fileName`, `documentPath`) VALUES
-(13, 'เช็คข้อมูลบุคลากรของหอสมุด จาก Username Password.pdf', '/uploads/documents/file-1741071158241-เช็คข้อมูลบุคลากรของหอสมุด-จาก-Username-Passwordpdf.pdf'),
-(14, 'เช็คข้อมูลบุคลากรของหอสมุด จาก Username Password.pdf', '/uploads/documents/file-1741071252975-เช็คข้อมูลบุคลากรของหอสมุด-จาก-Username-Passwordpdf.pdf'),
-(15, 'เช็คข้อมูลบุคลากรของหอสมุด จาก Username Password.pdf', '/uploads/documents/file-1741071560126-เช็คข้อมูลบุคลากรของหอสมุด-จาก-Username-Passwordpdf.pdf'),
-(16, 'เช็คข้อมูลบุคลากรของหอสมุด จาก Username Password.pdf', '/uploads/documents/file-1741071643806-เช็คข้อมูลบุคลากรของหอสมุด-จาก-Username-Passwordpdf.pdf');
 
 -- --------------------------------------------------------
 
@@ -64,7 +54,7 @@ INSERT INTO `document` (`id`, `fileName`, `documentPath`) VALUES
 
 CREATE TABLE `equipment` (
   `eq_Id` int NOT NULL,
-  `equip_Name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `equip_Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -90,18 +80,8 @@ CREATE TABLE `equipment_booking` (
   `eqb_Id` int NOT NULL,
   `eq_Id` int NOT NULL,
   `srb_Id` int NOT NULL,
-  `require` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `require` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `equipment_booking`
---
-
-INSERT INTO `equipment_booking` (`eqb_Id`, `eq_Id`, `srb_Id`, `require`) VALUES
-(6, 1, 10, 'ต้องการ'),
-(7, 4, 10, 'ต้องการ'),
-(8, 2, 10, 'ต้องการ'),
-(9, 7, 10, 'ต้องการ');
 
 -- --------------------------------------------------------
 
@@ -137,7 +117,7 @@ INSERT INTO `floor` (`floorId`, `floor_Number`, `total_Room`, `openTime`, `close
 
 CREATE TABLE `holiday` (
   `id` int NOT NULL,
-  `holiday_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `holiday_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `holiday_date` date NOT NULL,
   `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
@@ -355,21 +335,14 @@ CREATE TABLE `normal_room_booking` (
   `startTime` time NOT NULL,
   `endDate` date NOT NULL,
   `endTime` time NOT NULL,
-  `repeat_Flag` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `repeat_Flag` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `repeat_End_Flag` date NOT NULL,
-  `details` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `details` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `roomBookingRoomId` int NOT NULL,
-  `reseve_status` enum('รอ','อนุมัติ','ยกเลิก') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'รอ',
-  `reason` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `reseve_status` enum('รอ','อนุมัติ','ยกเลิก') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'รอ',
+  `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `cancelTime` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `normal_room_booking`
---
-
-INSERT INTO `normal_room_booking` (`nrbId`, `startDate`, `startTime`, `endDate`, `endTime`, `repeat_Flag`, `repeat_End_Flag`, `details`, `roomBookingRoomId`, `reseve_status`, `reason`, `cancelTime`) VALUES
-(54, '2025-03-04', '14:30:00', '2025-03-04', '16:30:00', 'No', '2025-03-04', 'เทสเทส', 3, 'อนุมัติ', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -379,22 +352,13 @@ INSERT INTO `normal_room_booking` (`nrbId`, `startDate`, `startTime`, `endDate`,
 
 CREATE TABLE `order_detail` (
   `orders_ID` int NOT NULL,
-  `Serve_Name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `Serve_Categories` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `Serve_Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Serve_Categories` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `Quantity` int NOT NULL,
   `CostPerson` decimal(10,2) NOT NULL,
   `SpecialRoomBooking_Id` int NOT NULL,
   `Serve_Time` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `order_detail`
---
-
-INSERT INTO `order_detail` (`orders_ID`, `Serve_Name`, `Serve_Categories`, `Quantity`, `CostPerson`, `SpecialRoomBooking_Id`, `Serve_Time`) VALUES
-(3, 'พักเบรคเช้า', 'อาหารว่าง', 5, 300.00, 10, '08:00:00'),
-(4, 'อาหารเที่ยง', 'อาหารเที่ยง', 5, 100.00, 10, '10:00:00'),
-(5, 'พักเบรคบ่าย', 'อาหารว่าง', 10, 200.00, 10, '09:00:00');
 
 -- --------------------------------------------------------
 
@@ -404,17 +368,9 @@ INSERT INTO `order_detail` (`orders_ID`, `Serve_Name`, `Serve_Categories`, `Quan
 
 CREATE TABLE `participant` (
   `participant_ID` int NOT NULL,
-  `fullName` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `fullName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `userbookingUserbookingId` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `participant`
---
-
-INSERT INTO `participant` (`participant_ID`, `fullName`, `userbookingUserbookingId`) VALUES
-(107, 'มีนา', 56),
-(108, 'มานี', 56);
 
 -- --------------------------------------------------------
 
@@ -424,7 +380,7 @@ INSERT INTO `participant` (`participant_ID`, `fullName`, `userbookingUserbooking
 
 CREATE TABLE `role` (
   `roleId` int NOT NULL,
-  `position` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `position` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -571,63 +527,64 @@ INSERT INTO `role_room_access` (`access_ID`, `roomId`, `roleId`) VALUES
 
 CREATE TABLE `room` (
   `roomId` int NOT NULL,
-  `room_Name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `room_Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `capacity` int NOT NULL,
   `max_hours` int NOT NULL,
-  `room_Status` enum('ว่าง','ไม่ว่าง','จอง') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'ว่าง',
-  `room_Type` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `room_Status` enum('ว่าง','ไม่ว่าง','จอง') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'ว่าง',
+  `room_Type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `room_Minimum` int NOT NULL,
-  `orderFood` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `orderFood` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `floorFloorId` int NOT NULL,
-  `RoomKey` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `imagePath` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `DetailRoom` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
+  `RoomKey` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `imagePath` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `DetailRoom` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `usage` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `room`
 --
 
-INSERT INTO `room` (`roomId`, `room_Name`, `capacity`, `max_hours`, `room_Status`, `room_Type`, `room_Minimum`, `orderFood`, `floorFloorId`, `RoomKey`, `imagePath`, `DetailRoom`) VALUES
-(1, 'ศึกษากลุ่ม 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072599951.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(2, 'ศึกษากลุ่ม 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072632986.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(3, 'ศึกษากลุ่ม 3', 5, 2, 'ไม่ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072640465.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(4, 'ศึกษากลุ่ม 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072654398.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(5, 'ศึกษากลุ่ม 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072660778.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(6, 'ศึกษากลุ่ม 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3, '3', '/uploads/rooms/room-1741072678748.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(7, 'ศึกษากลุ่ม 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3, '3', '/uploads/rooms/room-1741072686387.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(8, 'ศึกษากลุ่ม 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3, '3', '/uploads/rooms/room-1741072697065.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(9, 'ศึกษากลุ่ม 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3, '3', '/uploads/rooms/room-1741072705426.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(10, 'ศึกษากลุ่ม 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3, '3', '/uploads/rooms/room-1741072714316.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(11, 'ศึกษากลุ่ม 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4, '3', '/uploads/rooms/room-1741072750651.jpg', 'กระดานไวท์บอร์ด'),
-(12, 'ศึกษากลุ่ม 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4, '3', '/uploads/rooms/room-1741072757133.jpg', 'กระดานไวท์บอร์ด'),
-(13, 'ศึกษากลุ่ม 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4, '3', '/uploads/rooms/room-1741072763442.jpg', 'กระดานไวท์บอร์ด'),
-(14, 'ศึกษากลุ่ม 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4, '3', '/uploads/rooms/room-1741072774968.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(15, 'ศึกษากลุ่ม 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4, '3', '/uploads/rooms/room-1741072782819.jpg', 'Smart TV และกระดานไวท์บอร์ด'),
-(16, 'Lecture\'s room 1', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 4, '3', '/uploads/rooms/room-1741072816651.jpg', ''),
-(17, 'Lecture\'s room 2', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 4, '3', '/uploads/rooms/room-1741072823100.jpg', ''),
-(18, 'Lecture\'s room 3', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 4, '3', '/uploads/rooms/room-1741072829151.jpg', ''),
-(19, '640 Smart Board', 10, 2, 'ว่าง', 'Meeting', 8, 'No', 5, '6', '/uploads/rooms/room-1741072857988.jpg', 'Smart Board และ Projector'),
-(20, 'LIBRA OKE I', 5, 2, 'ว่าง', 'Entertain', 3, 'No', 5, '6', '/uploads/rooms/room-1741072864374.jpg', 'TV Microphone และเครื่องคาราโอเกะ'),
-(21, 'LIBRA OKE II', 5, 2, 'ว่าง', 'Entertain', 3, 'No', 5, '6', '/uploads/rooms/room-1741072870125.jpg', 'TV Microphone และเครื่องคาราโอเกะ'),
-(22, 'Mini theater', 30, 2, 'ว่าง', 'Entertain', 10, 'No', 5, '6', '/uploads/rooms/room-1741072975749.png', 'จอภาพยนตร์ และแว่นตา 3 มิติ (รับที่เคาน์เตอร์)'),
-(23, 'STV-1', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', '/uploads/rooms/room-1741072984923.png', 'TV มีบริการ Netfilx และหูฟัง (รับที่เคาน์เตอร์)'),
-(24, 'STV-2', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟัง (รับที่เคาน์เตอร์)'),
-(25, 'STV-3', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟัง (รับที่เคาน์เตอร์)'),
-(26, 'STV-4', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟัง (รับที่เคาน์เตอร์)'),
-(27, 'STV-5', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟัง (รับที่เคาน์เตอร์)'),
-(28, 'STV-6', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟัง (รับที่เคาน์เตอร์)'),
-(29, 'STV-7', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟัง (รับที่เคาน์เตอร์)'),
-(30, 'STV-8', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟัง (รับที่เคาน์เตอร์)'),
-(31, 'STV-9', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟัง (รับที่เคาน์เตอร์)'),
-(32, 'Mini Studio', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 5, '6', '/uploads/rooms/room-1741073008064.png', 'อุปกรณ์จัดแสง และกล้องถ่ายวิดีโอ'),
-(35, 'CYBER ZONE I', 70, 24, 'ว่าง', 'Meeting', 1, 'Yes', 5, '6', '/uploads/rooms/room-1741073026484.png', ''),
-(36, 'CYBER ZONE II', 30, 24, 'ว่าง', 'Meeting', 1, 'Yes', 5, '6', '/uploads/rooms/room-1741073033139.png', ''),
-(37, 'ห้อง 201', 50, 24, 'ว่าง', 'Meeting', 20, 'Yes', 1, '', '/uploads/rooms/room-1741073040893.png', ''),
-(38, 'ห้อง 706', 50, 24, 'ว่าง', 'Meeting', 1, 'Yes', 6, '', NULL, ''),
-(39, 'ห้อง 707', 50, 24, 'ว่าง', 'Meeting', 1, 'Yes', 6, '', NULL, ''),
-(40, 'Live for Life', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 5, '6', '/uploads/rooms/room-1741057202622.jpg', 'อุปกรณ์จัดแสง และจุดเชื่อมต่อ Notebook'),
-(41, 'ศึกษากลุ่ม 6', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072669032.jpg', 'Smart TV และกระดานไวท์บอร์ดตั้งพื้น');
+INSERT INTO `room` (`roomId`, `room_Name`, `capacity`, `max_hours`, `room_Status`, `room_Type`, `room_Minimum`, `orderFood`, `floorFloorId`, `RoomKey`, `imagePath`, `DetailRoom`, `usage`) VALUES
+(1, 'ศึกษากลุ่ม 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072599951.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(2, 'ศึกษากลุ่ม 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072632986.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(3, 'ศึกษากลุ่ม 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072640465.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(4, 'ศึกษากลุ่ม 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072654398.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(5, 'ศึกษากลุ่ม 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072660778.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(6, 'ศึกษากลุ่ม 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3, '3', '/uploads/rooms/room-1741072678748.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(7, 'ศึกษากลุ่ม 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3, '3', '/uploads/rooms/room-1741072686387.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(8, 'ศึกษากลุ่ม 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3, '3', '/uploads/rooms/room-1741072697065.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(9, 'ศึกษากลุ่ม 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3, '3', '/uploads/rooms/room-1741072705426.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(10, 'ศึกษากลุ่ม 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 3, '3', '/uploads/rooms/room-1741072714316.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(11, 'ศึกษากลุ่ม 1', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4, '3', '/uploads/rooms/room-1741072750651.jpg', 'กระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(12, 'ศึกษากลุ่ม 2', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4, '3', '/uploads/rooms/room-1741072757133.jpg', 'กระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(13, 'ศึกษากลุ่ม 3', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4, '3', '/uploads/rooms/room-1741072763442.jpg', 'กระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(14, 'ศึกษากลุ่ม 4', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4, '3', '/uploads/rooms/room-1741072774968.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(15, 'ศึกษากลุ่ม 5', 5, 2, 'ว่าง', 'Group study', 3, 'No', 4, '3', '/uploads/rooms/room-1741072782819.jpg', 'Smart TV และกระดานไวท์บอร์ด', 'นิสิต อาจารย์ และบุคลากร'),
+(16, 'Lecture\'s room 1', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 4, '3', '/uploads/rooms/room-1741072816651.jpg', 'โต๊ะทำงาน', 'อาจารย์ และบุคลากร'),
+(17, 'Lecture\'s room 2', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 4, '3', '/uploads/rooms/room-1741072823100.jpg', 'โต๊ะทำงาน', 'อาจารย์ และบุคลากร'),
+(18, 'Lecture\'s room 3', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 4, '3', '/uploads/rooms/room-1741072829151.jpg', 'โต๊ะทำงาน', 'อาจารย์ และบุคลากร'),
+(19, '640 Smart Board', 10, 2, 'ว่าง', 'Meeting', 8, 'No', 5, '6', '/uploads/rooms/room-1741072857988.jpg', 'Smart Board และ Projector', 'นิสิต อาจารย์ และบุคลากร'),
+(20, 'LIBRA OKE I', 5, 2, 'ว่าง', 'Entertain', 3, 'No', 5, '6', '/uploads/rooms/room-1741072864374.jpg', 'TV Microphone 2 ตัว คอมพิวเตอร์คาราโอเกะ 1 ชุด และชุดเครื่องเสียง 1 ชุด', 'นิสิต อาจารย์ และบุคลากร'),
+(21, 'LIBRA OKE II', 5, 2, 'ว่าง', 'Entertain', 3, 'No', 5, '6', '/uploads/rooms/room-1741072870125.jpg', 'TV Microphone 2 ตัว คอมพิวเตอร์คาราโอเกะ 1 ชุด และชุดเครื่องเสียง 1 ชุด', 'นิสิต อาจารย์ และบุคลากร'),
+(22, 'Mini Theater', 30, 2, 'ว่าง', 'Entertain', 10, 'No', 5, '6', '/uploads/rooms/room-1741227430033.png', 'จอภาพยนตร์ ระบบเสียง Home Theater มีบริการ Netfilx แว่นตา 3 มิติ (รับที่เคาน์เตอร์) และคอมพิวเตอร์', 'นิสิต อาจารย์ และบุคลากร'),
+(23, 'STV-1', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', '/uploads/rooms/room-1741072984923.png', 'TV มีบริการ Netfilx และหูฟังไร้สาย (รับที่เคาน์เตอร์)', 'นิสิต อาจารย์ และบุคลากร'),
+(24, 'STV-2', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟังไร้สาย (รับที่เคาน์เตอร์)', 'นิสิต อาจารย์ และบุคลากร'),
+(25, 'STV-3', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟังไร้สาย (รับที่เคาน์เตอร์)', 'นิสิต อาจารย์ และบุคลากร'),
+(26, 'STV-4', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟังไร้สาย (รับที่เคาน์เตอร์)', 'นิสิต อาจารย์ และบุคลากร'),
+(27, 'STV-5', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟังไร้สาย (รับที่เคาน์เตอร์)', 'นิสิต อาจารย์ และบุคลากร'),
+(28, 'STV-6', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟังไร้สาย (รับที่เคาน์เตอร์)', 'นิสิต อาจารย์ และบุคลากร'),
+(29, 'STV-7', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟังไร้สาย (รับที่เคาน์เตอร์)', 'นิสิต อาจารย์ และบุคลากร'),
+(30, 'STV-8', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟังไร้สาย (รับที่เคาน์เตอร์)', 'นิสิต อาจารย์ และบุคลากร'),
+(31, 'STV-9', 5, 3, 'ว่าง', 'Entertain', 3, 'No', 5, '6', NULL, 'TV มีบริการ Netfilx และหูฟังไร้สาย (รับที่เคาน์เตอร์)', 'นิสิต อาจารย์ และบุคลากร'),
+(32, 'Mini Studio', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 5, '6', '/uploads/rooms/room-1741227323139.png', 'กล้องวิดีโอ 4K 3 ตัว ไฟส่องฉาก ไฟส่องบุคคล ไมค์ไร้สาย 2 ชุด คอมพิวเตอร์พร้อมระบบตัดต่อ 2 ชุด อุปกรณ์สลับภาพ 1 ตัว และจุดเชื่อมต่อ Notebook', 'อาจารย์ และบุคลากร'),
+(35, 'CYBER ZONE I', 50, 24, 'ว่าง', 'Meeting', 1, 'Yes', 5, '6', '/uploads/rooms/room-1741227359233.png', 'คอมพิวเตอร์ 50 ตัว Projector Microphone และ TV 2 เครื่อง', 'บุคลากรภายใน'),
+(36, 'CYBER ZONE II', 20, 24, 'ว่าง', 'Meeting', 1, 'Yes', 5, '6', '/uploads/rooms/room-1741227366191.png', 'คอมพิวเตอร์ 20 ตัว Projector และ Microphone', 'บุคลากรภายใน'),
+(37, 'ห้อง 201', 75, 24, 'ว่าง', 'Meeting', 20, 'Yes', 1, '', '/uploads/rooms/room-1741227384558.png', 'TV Microphone Projector และ Notebook', 'บุคลากรภายใน'),
+(38, 'ห้อง 706', 50, 24, 'ว่าง', 'Meeting', 1, 'Yes', 6, '', NULL, '', 'บุคลากรภายใน'),
+(39, 'ห้อง 707', 50, 24, 'ว่าง', 'Meeting', 1, 'Yes', 6, '', '/uploads/rooms/room-1741227376320.jpg', '', 'บุคลากรภายใน'),
+(40, 'Live for Life', 5, 2, 'ว่าง', 'Meeting', 3, 'No', 5, '6', '/uploads/rooms/room-1741173559260.jpg', 'คอมพิวเตอร์ 1 ชุด พร้อมกล้อง Webcam โคมไฟ 1 ชุด และจุดเชื่อมต่อ Notebook', 'นิสิต อาจารย์ และบุคลากร'),
+(41, 'ศึกษากลุ่ม 6', 5, 2, 'ว่าง', 'Group study', 3, 'No', 2, '2', '/uploads/rooms/room-1741072669032.jpg', 'Smart TV และกระดานไวท์บอร์ดตั้งพื้น', 'นิสิต อาจารย์ และบุคลากร');
 
 -- --------------------------------------------------------
 
@@ -642,27 +599,17 @@ CREATE TABLE `special_room_booking` (
   `start_Time` time NOT NULL,
   `end_Date` date NOT NULL,
   `end_Time` time NOT NULL,
-  `stage_Name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `reseve_status` enum('รอ','อนุมัติ','ยกเลิก') COLLATE utf8mb4_general_ci DEFAULT 'รอ',
-  `equip_Descript` text COLLATE utf8mb4_general_ci NOT NULL,
-  `order_Description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `stage_Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `reseve_status` enum('รอ','อนุมัติ','ยกเลิก') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'รอ',
+  `equip_Descript` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `order_Description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `documentId` int DEFAULT NULL,
   `userId` int NOT NULL,
   `roomId` int NOT NULL,
-  `contract_Number` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `reason` text COLLATE utf8mb4_general_ci NOT NULL,
+  `contract_Number` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `reason` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `cancelTime` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `special_room_booking`
---
-
-INSERT INTO `special_room_booking` (`srb_Id`, `people_Count`, `start_Date`, `start_Time`, `end_Date`, `end_Time`, `stage_Name`, `reseve_status`, `equip_Descript`, `order_Description`, `documentId`, `userId`, `roomId`, `contract_Number`, `reason`, `cancelTime`) VALUES
-(9, 10, '2025-03-04', '14:00:00', '2025-03-04', '14:30:00', '', 'รอ', '', '', 13, 1, 37, '0949803060', '', '00:00:00'),
-(10, 9, '2025-03-04', '15:30:00', '2025-03-04', '18:00:00', 'ป้าย', 'รอ', '', 'รายละเอีนดเทส', 14, 1, 37, '0949803060', '', '00:00:00'),
-(11, 111, '2025-03-04', '14:00:00', '2025-03-04', '14:30:00', '', 'รอ', '', '', 15, 1, 37, '0949830602', '', '00:00:00'),
-(12, 12, '2025-03-04', '14:00:00', '2025-03-04', '14:30:00', '', 'รอ', '', '', 16, 1, 37, '1234567896', '', '00:00:00');
 
 -- --------------------------------------------------------
 
@@ -672,29 +619,32 @@ INSERT INTO `special_room_booking` (`srb_Id`, `people_Count`, `start_Date`, `sta
 
 CREATE TABLE `user` (
   `userId` int NOT NULL,
-  `firstname` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `lastname` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `Username` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `Prefix_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `Phone` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Department_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Position_Name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `TypePersons` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Agency` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `Status` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ManagementPositionName` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `firstname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `lastname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Prefix_Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `Phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Department_Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Position_Name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `TypePersons` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Agency` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `Status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `ManagementPositionName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `Ldap` int NOT NULL,
-  `lastLoginAt` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `lastLoginAt` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `permissions` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`userId`, `firstname`, `lastname`, `Username`, `Prefix_Name`, `Email`, `Phone`, `Department_Name`, `Position_Name`, `TypePersons`, `Agency`, `Status`, `ManagementPositionName`, `Ldap`, `lastLoginAt`) VALUES
-(1, 'Nawapat', ' Seehabut', '64160136', '', '64160136@go.buu.ac.th', '', '', '', 'OU=People', 'OU=Informatics', 'Active', '', 1, '2025-03-04'),
-(2, 'Paramet', ' Tanon', '64160257', '', '64160257@go.buu.ac.th', '', '', '', 'OU=People', 'OU=Informatics', 'Active', '', 1, '2025-03-03');
+INSERT INTO `user` (`userId`, `firstname`, `lastname`, `Username`, `Prefix_Name`, `Email`, `Phone`, `Department_Name`, `Position_Name`, `TypePersons`, `Agency`, `Status`, `ManagementPositionName`, `Ldap`, `lastLoginAt`, `password`, `permissions`) VALUES
+(1, 'Nawapat', ' Seehabut', '64160136', '', '64160136@go.buu.ac.th', '', '', '', 'OU=People', 'OU=Informatics', 'Active', '', 1, '2025-03-06', '$2b$10$FSxXRvX91qe37ob/ugb5tezsvIkANLwv1fXTh8BtCEM9R0xqPjvAC', 0),
+(2, 'Paramet', ' Tanon', '64160257', '', '64160257@go.buu.ac.th', '', '', '', 'OU=People', 'OU=Informatics', 'Active', '', 1, '2025-03-06', '$2b$10$rmfwD17dzqYtMyzlxxCcF.Gj4A/TcApEI8taVi4L7Ik2NV5gXDC4W', 0),
+(4, 'Pongpipat', ' Siangsai', '64160139', '', '64160139@go.buu.ac.th', '', '', '', 'OU=People', 'OU=Informatics', 'Active', '', 1, '2025-03-06', '$2b$10$iESJcXR5XirQ2F0Fs5KBSu3hUtCy8Y6l/Lawua5EvYkijNvdMcMui', 0);
 
 -- --------------------------------------------------------
 
@@ -707,13 +657,6 @@ CREATE TABLE `user_booking` (
   `userId` int NOT NULL,
   `nrbId` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user_booking`
---
-
-INSERT INTO `user_booking` (`userbooking_Id`, `userId`, `nrbId`) VALUES
-(56, 1, 54);
 
 --
 -- Indexes for dumped tables
@@ -854,7 +797,7 @@ ALTER TABLE `confirmation`
 -- AUTO_INCREMENT for table `document`
 --
 ALTER TABLE `document`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -866,7 +809,7 @@ ALTER TABLE `equipment`
 -- AUTO_INCREMENT for table `equipment_booking`
 --
 ALTER TABLE `equipment_booking`
-  MODIFY `eqb_Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `eqb_Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `floor`
@@ -884,19 +827,19 @@ ALTER TABLE `holiday`
 -- AUTO_INCREMENT for table `normal_room_booking`
 --
 ALTER TABLE `normal_room_booking`
-  MODIFY `nrbId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `nrbId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `orders_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `orders_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `participant`
 --
 ALTER TABLE `participant`
-  MODIFY `participant_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `participant_ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -926,19 +869,19 @@ ALTER TABLE `room`
 -- AUTO_INCREMENT for table `special_room_booking`
 --
 ALTER TABLE `special_room_booking`
-  MODIFY `srb_Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `srb_Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `userId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `userId` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_booking`
 --
 ALTER TABLE `user_booking`
-  MODIFY `userbooking_Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `userbooking_Id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- Constraints for dumped tables
